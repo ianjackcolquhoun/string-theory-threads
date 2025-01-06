@@ -8,7 +8,7 @@ export default function App({ Component, pageProps }) {
   // Prevent background image from loading flash
   useEffect(() => {
     const preloadImage = new Image()
-    preloadImage.src = '/string-theory-bg.jpg'
+    preloadImage.src = '/stringtheory.jpg'
   }, [])
 
   return (

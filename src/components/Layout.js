@@ -20,7 +20,7 @@ export default function Layout({ children }) {
       <div 
         className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
         style={{ 
-          backgroundImage: 'url("../../public/wp7642675-string-theory-wallpapers.jpg")',
+          backgroundImage: 'url("/stringtheory.jpg")',
           backgroundAttachment: 'fixed'
         }}
       >

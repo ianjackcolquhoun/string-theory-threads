@@ -40,6 +40,8 @@ export default function SparklyMouseTrail() {
       const rect = canvas.getBoundingClientRect()
       const x = e.clientX - rect.left
       const y = e.clientY - rect.top
+
+      console.log(`Mouse moved to: ${x}, ${y}`) // Debugging line
       
       for (let i = 0; i < 3; i++) {
         particles.push(new Particle(x, y))
