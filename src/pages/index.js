@@ -1,7 +1,7 @@
 // pages/index.js
 import { useState } from 'react'
 import Link from 'next/link'
-import WaveBackground from '@/components/WaveBackground'
+import StringTheoryBackground from '@/components/StringTheoryBackground'
 import ProductGrid from '@/components/ProductGrid'
 
 export default function Home() {
@@ -14,7 +14,7 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen bg-gradient-to-b from-blue-900 to-black">
-      <WaveBackground />
+      <StringTheoryBackground />
       <div className="relative z-10 max-w-7xl mx-auto px-4">
         <header className="py-16 text-center">
           <h1 className="text-7xl font-bold text-white mb-4 tracking-tight">
