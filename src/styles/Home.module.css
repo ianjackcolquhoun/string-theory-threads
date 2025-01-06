@@ -1,0 +1,13 @@
+.container {
+    background-image: url('../../public/background.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .main {
+    padding: 20px;
+    color: #fff;
+  }
+  
