@@ -2,14 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
 body {
-  @apply bg-gradient-to-b from-blue-900 to-black min-h-screen text-white;
+  padding: 0;
+  margin: 0;
+  min-height: 100vh;
+  color: white;
+  background: #000014;
 }
 
-.backdrop-blur-lg {
-  backdrop-filter: blur(16px);
+* {
+  box-sizing: border-box;
 }
 
+/* Custom animation for category items */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -19,4 +25,8 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.5s ease forwards;
 }
