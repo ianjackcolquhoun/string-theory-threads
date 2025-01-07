@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 
-export default function MagicalPlusTrail() {
+export default function MagicPlusTrail() {
   const [enabled, setEnabled] = useState(true)
   const [trail, setTrail] = useState([])
 
@@ -17,7 +17,12 @@ export default function MagicalPlusTrail() {
       if (currentTime - lastTime < 30) return
       lastTime = currentTime
 
-      // Create single plus sign with guaranteed visibility
+      // Add random offset to position
+      const offset = {
+        x: (Math.random() - 0.5) * 1, // Random spread of ±50 pixels
+        y: (Math.random() - 0.5) * 1,
+      }
+
       const newPlus = {
         id: Math.random(),
         x: e.clientX,
@@ -55,9 +60,6 @@ export default function MagicalPlusTrail() {
 
   return (
     <div className="fixed inset-0 pointer-events-none" style={{ zIndex: 9999 }}>
-      {/* Dark overlay */}
-      <div className="fixed inset-0 bg-black/90" />
-
       {/* Controls */}
       <button
         onClick={() => setEnabled(!enabled)}

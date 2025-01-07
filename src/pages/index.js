@@ -1,13 +1,17 @@
 // pages/index.js
-import Head from 'next/head'
-import { motion } from 'framer-motion'
+import Head from "next/head"
+import { motion } from "framer-motion"
+import MagicalPlusTrail from "@/components/MagicPlusTrail" // Ensure this matches your component file name
 
 export default function Home() {
   return (
     <>
       <Head>
         <title>String Theory Threads</title>
-        <meta name="description" content="Where quantum fashion meets cosmic style" />
+        <meta
+          name="description"
+          content="Where quantum fashion meets cosmic style"
+        />
       </Head>
       <div className="min-h-screen relative z-10">
         <main className="container mx-auto px-4 pt-32">
@@ -24,7 +28,7 @@ export default function Home() {
               Where quantum fashion meets cosmic style
             </p>
           </motion.div>
-          
+
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -35,6 +39,7 @@ export default function Home() {
           </motion.div>
         </main>
       </div>
+      <MagicalPlusTrail /> {/* Add your component here */}
     </>
   )
 }
