@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 
-// componenets
+// components
 import SiteHeader from "../components/site-header"
 
 const inter = Inter({ subsets: ["latin"] })
@@ -14,13 +14,34 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: Readonly<{
+  children: React.ReactNode
+}>) {
   return (
     <html lang="en">
-      <header>
-        <SiteHeader />
-      </header>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {/* Background image container */}
+        <div
+          className="fixed inset-0 z-0"
+          style={{
+            backgroundImage: 'url("/string.jpg")', // Replace with your image path
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          }}
+        >
+          {/* Optional overlay for better text readability */}
+          <div className="absolute inset-0 bg-black/50" />
+        </div>
+
+        {/* Header */}
+        <header className="relative z-10">
+          <SiteHeader />
+        </header>
+
+        {/* Main content */}
+        <main className="relative z-10">{children}</main>
+      </body>
     </html>
   )
 }

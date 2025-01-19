@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from "react"
 import Link from "next/link"
-import Image from "next/image"
+
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -40,59 +40,65 @@ const Header = () => {
   ]
 
   return (
-    <header className="py-2 px-2 w-full fixed top-0 left-0 z-20 text-base md:p-1.5">
-      <div className="relative flex justify-center items-center border-solid border-2 border-black bg-white py-2 px-3 md:px-5">
+    <header className="py-0.5 w-full fixed top-0 left-0 z-20 text-base md:p-4">
+      <div className="relative flex justify-center items-center border-solid border-2 border-white bg-black py-0.5 px-2 text-white">
         {/* Mobile Menu Button */}
         <button
           className="md:hidden flex flex-col justify-center space-y-1 mr-auto"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
-          <span className="block w-6 h-0.5 bg-black"></span>
-          <span className="block w-6 h-0.5 bg-black"></span>
+          <span className="block w-4 h-0.5 bg-white"></span>
+          <span className="block w-4 h-0.5 bg-white"></span>
         </button>
 
         {/* Logo */}
         <Link href="/">
-          <Image
+          STT
+          {/* <Image
             src="/logo.svg"
             alt="STT"
-            width={102}
-            height={50}
+            width={60}
+            height={30}
             priority
-            className="h-auto"
-          />
+            className="h-auto invert"
+          /> */}
         </Link>
 
         {/* Main Navigation */}
         <NavigationMenu className="hidden md:flex flex-grow">
-          <NavigationMenuList className="flex items-center space-x-8">
+          <NavigationMenuList className="flex items-center space-x-6">
             {menuItems.map((item) => (
               <NavigationMenuItem key={item.label} className="relative group">
                 <Link
                   href={item.href}
-                  className="inline-flex items-center gap-2 text-sm font-bold"
+                  className="inline-flex items-center gap-1 text-sm font-bold"
                 >
                   {item.label}
                   {item.subItems && (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      width="11"
+                      width="8"
                       height="4"
                       viewBox="0 0 10 5"
                       className="transition-transform group-hover:rotate-180"
                     >
-                      <path d="M1 1L5.12903 4L9 1" stroke="black" fill="none" />
+                      <path
+                        d="M1 1L5.12903 4L9 1"
+                        stroke="white"
+                        strokeWidth="2"
+                        fill="none"
+                      />
                     </svg>
                   )}
                 </Link>
 
                 {item.subItems && (
-                  <div className="submenu absolute hidden group-hover:flex flex-wrap gap-4 bg-white border-2 border-black p-4 min-w-[200px] top-full left-0">
+                  <div className="submenu absolute hidden group-hover:flex flex-wrap gap-3 bg-black/90 border-2 border-white p-3 min-w-[180px] top-full left-0">
                     {item.subItems.map((subItem) => (
                       <Link
                         key={subItem.label}
                         href={subItem.href}
-                        className="text-gray-600 hover:text-black hover:underline block"
+                        className="text-gray-300 hover:text-white hover:underline block text-sm font-bold"
                       >
                         {subItem.label}
                       </Link>
@@ -107,36 +113,39 @@ const Header = () => {
         {/* Right Side Items */}
         <div className="flex items-center ml-auto">
           {/* Currency Selector */}
-          <button className="hidden md:flex items-center gap-2 text-sm font-bold">
+          <button className="hidden md:flex items-center gap-1 text-sm font-bold">
             <span>US/$</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="11"
+              width="8"
               height="4"
               viewBox="0 0 10 5"
             >
-              <path d="M1 1L5.12903 4L9 1" stroke="black" fill="none" />
+              <path
+                d="M1 1L5.12903 4L9 1"
+                stroke="white"
+                strokeWidth="2"
+                fill="none"
+              />
             </svg>
           </button>
 
           {/* Cart */}
-          <div className="ml-6">
-            <button className="text-xs md:text-sm font-bold hover:underline">
-              Cart
-            </button>
+          <div className="ml-4">
+            <button className="text-sm font-bold hover:underline">Cart</button>
           </div>
         </div>
       </div>
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 bg-white z-30 md:hidden pt-16">
+        <div className="fixed inset-0 bg-black/90 z-30 md:hidden pt-8">
           <nav className="p-4">
             {menuItems.map((item) => (
               <div key={item.label} className="py-2">
                 <Link
                   href={item.href}
-                  className="text-lg font-bold"
+                  className="text-base font-bold"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.label}
