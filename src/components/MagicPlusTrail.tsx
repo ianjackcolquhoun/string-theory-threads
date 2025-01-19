@@ -30,6 +30,10 @@ interface ParticleProps {
   plus: PlusParticle
 }
 
+interface MagicPlusTrailProps {
+  disabled?: boolean
+}
+
 // Separate Plus component for better organization
 const Plus: React.FC<ParticleProps> = ({ plus }) => {
   const styles: PlusStyles = {
@@ -71,9 +75,15 @@ const Plus: React.FC<ParticleProps> = ({ plus }) => {
   )
 }
 
-export default function MagicPlusTrail(): JSX.Element {
-  const [enabled, setEnabled] = useState<boolean>(true)
+export default function MagicPlusTrail({
+  disabled = false,
+}: MagicPlusTrailProps): JSX.Element {
+  const [enabled, setEnabled] = useState<boolean>(!disabled)
   const [trail, setTrail] = useState<readonly PlusParticle[]>([])
+
+  useEffect(() => {
+    setEnabled(!disabled)
+  }, [disabled])
 
   const createParticle = useCallback(
     (x: number, y: number): PlusParticle => ({
@@ -133,7 +143,9 @@ export default function MagicPlusTrail(): JSX.Element {
   }, [enabled, createParticle, updateParticles])
 
   return (
-    <div className="fixed inset-0 pointer-events-none" style={{ zIndex: 9999 }}>
+    <div className="fixed inset-0 pointer-events-none" style={{ zIndex: 40 }}>
+      {" "}
+      {/* Lower than header's z-50 */}
       <button
         onClick={() => setEnabled((prev) => !prev)}
         className="fixed bottom-4 right-4 px-4 py-2 bg-white text-black rounded pointer-events-auto"
@@ -141,7 +153,6 @@ export default function MagicPlusTrail(): JSX.Element {
       >
         {enabled ? "Disable" : "Enable"} Trail
       </button>
-
       {trail.map((plus) => (
         <Plus key={plus.id} plus={plus} />
       ))}
