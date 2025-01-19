@@ -40,8 +40,8 @@ const Header = () => {
   ]
 
   return (
-    <header className="py-4 px-2 w-full fixed top-0 left-0 z-20 text-base md:p-3">
-      <div className="relative flex justify-center items-center border-solid border-2 border-black bg-white py-4 px-3 md:px-5">
+    <header className="py-2 px-2 w-full fixed top-0 left-0 z-20 text-base md:p-1.5">
+      <div className="relative flex justify-center items-center border-solid border-2 border-black bg-white py-2 px-3 md:px-5">
         {/* Mobile Menu Button */}
         <button
           className="md:hidden flex flex-col justify-center space-y-1 mr-auto"
@@ -56,8 +56,8 @@ const Header = () => {
           <Image
             src="/logo.svg"
             alt="STT"
-            width={204}
-            height={100}
+            width={102}
+            height={50}
             priority
             className="h-auto"
           />
@@ -70,7 +70,7 @@ const Header = () => {
               <NavigationMenuItem key={item.label} className="relative group">
                 <Link
                   href={item.href}
-                  className="inline-flex items-center gap-2 text-base font-bold"
+                  className="inline-flex items-center gap-2 text-sm font-bold"
                 >
                   {item.label}
                   {item.subItems && (
@@ -107,7 +107,7 @@ const Header = () => {
         {/* Right Side Items */}
         <div className="flex items-center ml-auto">
           {/* Currency Selector */}
-          <button className="hidden md:flex items-center gap-2 text-base font-bold">
+          <button className="hidden md:flex items-center gap-2 text-sm font-bold">
             <span>US/$</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -121,7 +121,7 @@ const Header = () => {
 
           {/* Cart */}
           <div className="ml-6">
-            <button className="text-xs md:text-base font-bold hover:underline">
+            <button className="text-xs md:text-sm font-bold hover:underline">
               Cart
             </button>
           </div>
@@ -130,7 +130,7 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 bg-white z-30 md:hidden pt-20">
+        <div className="fixed inset-0 bg-white z-30 md:hidden pt-16">
           <nav className="p-4">
             {menuItems.map((item) => (
               <div key={item.label} className="py-2">
