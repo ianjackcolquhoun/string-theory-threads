@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useCallback } from "react"
+import { useState, useEffect, useCallback, JSX } from "react"
 
 // Define constants to avoid magic numbers
 const TRAIL_LENGTH = 20

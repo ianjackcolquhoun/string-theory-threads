@@ -21,7 +21,6 @@ const Home: NextPage = () => {
         />
       </Head>
       {/* Background color and pattern */}
-      <div className="fixed inset-0 bg-black" />
       <div className="min-h-screen relative z-10">
         <main className="container mx-auto px-4 pt-32">
           <motion.div
