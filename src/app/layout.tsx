@@ -1,5 +1,6 @@
 "use client"
 import { useState } from "react"
+import { usePathname } from "next/navigation" // Add this import
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
@@ -8,17 +9,13 @@ import MagicPlusTrail from "@/components/MagicPlusTrail"
 
 const inter = Inter({ subsets: ["latin"] })
 
-// export const metadata: Metadata = {
-//   title: "String Theory Threads",
-//   description: "Where quantum fashion meets cosmic style",
-// }
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
   const [isHoveringNav, setIsHoveringNav] = useState(false)
+  const pathname = usePathname() // Add this line
 
   return (
     <html lang="en">
@@ -39,12 +36,14 @@ export default function RootLayout({
         </div>
 
         <div className="relative min-h-screen">
-          <div
-            onMouseEnter={() => setIsHoveringNav(true)}
-            onMouseLeave={() => setIsHoveringNav(false)}
-          >
-            <NavigationHeader />
-          </div>
+          {pathname !== "/pages/checkout" && ( // Add this condition
+            <div
+              onMouseEnter={() => setIsHoveringNav(true)}
+              onMouseLeave={() => setIsHoveringNav(false)}
+            >
+              <NavigationHeader />
+            </div>
+          )}
 
           <main className="relative">{children}</main>
 
