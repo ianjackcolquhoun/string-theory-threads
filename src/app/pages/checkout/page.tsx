@@ -86,19 +86,19 @@ const CheckoutPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-transparent py-8">
-      <div className="max-w-7xl mx-auto  px-4">
+    <div className="min-h-screen bg-transparent text-white py-8">
+      <div className="max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Left Column - Checkout Form */}
           <div className="lg:col-span-5 space-y-6">
             <div className="flex items-center space-x-2">
               <ShoppingCart className="w-6 h-6 text-blue-600" />
-              <h1 className="text-2xl font-bold">Checkout</h1>
+              <h1 className="text-2xl font-bold text-white">Checkout</h1>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Contact Information */}
-              <Card>
+              <Card className="bg-white text-black">
                 <CardHeader>
                   <CardTitle>Contact Information</CardTitle>
                 </CardHeader>
@@ -115,7 +115,7 @@ const CheckoutPage = () => {
               </Card>
 
               {/* Shipping Information */}
-              <Card>
+              <Card className="bg-white text-black">
                 <CardHeader>
                   <CardTitle>Shipping Address</CardTitle>
                 </CardHeader>
@@ -164,7 +164,7 @@ const CheckoutPage = () => {
               </Card>
 
               {/* Payment Information */}
-              <Card>
+              <Card className="bg-white text-black">
                 <CardHeader>
                   <CardTitle>Payment</CardTitle>
                 </CardHeader>
@@ -197,7 +197,7 @@ const CheckoutPage = () => {
 
           {/* Middle Column - Order Items */}
           <div className="lg:col-span-4">
-            <Card>
+            <Card className="bg-white text-black">
               <CardHeader>
                 <CardTitle>Order Items</CardTitle>
               </CardHeader>
@@ -214,7 +214,7 @@ const CheckoutPage = () => {
                       </div>
                       <div>
                         <h3 className="font-medium">{item.name}</h3>
-                        <p className="text-sm text-gray-500">
+                        <p className="text-sm text-gray-600">
                           {item.description}
                         </p>
                         <div className="flex justify-between items-center mt-2">
@@ -236,7 +236,7 @@ const CheckoutPage = () => {
 
           {/* Right Column - Payment Summary */}
           <div className="lg:col-span-3">
-            <Card>
+            <Card className="bg-white text-black">
               <CardHeader>
                 <CardTitle>Payment Summary</CardTitle>
               </CardHeader>
@@ -262,7 +262,7 @@ const CheckoutPage = () => {
 
                   <Button
                     type="submit"
-                    className="w-full bg-blue-600 hover:bg-blue-700"
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white"
                   >
                     <Lock className="w-4 h-4 mr-2" />
                     Complete Order
