@@ -1,7 +1,6 @@
 "use client"
 import { useState } from "react"
 import { usePathname } from "next/navigation" // Add this import
-import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import NavigationHeader from "@/components/claude-header"
@@ -37,12 +36,9 @@ export default function RootLayout({
 
         <div className="relative min-h-screen">
           {pathname !== "/pages/checkout" && ( // Add this condition
-            <div
-              onMouseEnter={() => setIsHoveringNav(true)}
-              onMouseLeave={() => setIsHoveringNav(false)}
-            >
-              <NavigationHeader />
-            </div>
+            <NavigationHeader
+              onHover={(hovering: boolean) => setIsHoveringNav(hovering)}
+            />
           )}
 
           <main className="relative">{children}</main>
