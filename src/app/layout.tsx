@@ -1,10 +1,8 @@
 "use client"
-import { useState } from "react"
-import { usePathname } from "next/navigation" // Add this import
+import { usePathname } from "next/navigation"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import NavigationHeader from "@/components/claude-header"
-import MagicPlusTrail from "@/components/MagicPlusTrail"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -13,13 +11,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const [isHoveringNav, setIsHoveringNav] = useState(false)
-  const pathname = usePathname() // Add this line
+  const pathname = usePathname()
 
   return (
     <html lang="en">
       <body className={`${inter.className}`}>
-        {/* Background Image section */}
+        {/* Background Image section - moved to bottom of DOM order */}
         <div
           className="fixed inset-0 w-full h-full"
           style={{
@@ -35,15 +32,15 @@ export default function RootLayout({
         </div>
 
         <div className="relative min-h-screen">
-          {pathname !== "/pages/checkout" && ( // Add this condition
-            <NavigationHeader
-              onHover={(hovering: boolean) => setIsHoveringNav(hovering)}
-            />
+          {pathname !== "/pages/checkout" && (
+            <div className="relative z-50">
+              {" "}
+              {/* Added z-index container */}
+              <NavigationHeader />
+            </div>
           )}
 
-          <main className="relative">{children}</main>
-
-          <MagicPlusTrail disabled={isHoveringNav} />
+          <main className="relative z-30">{children}</main>
         </div>
       </body>
     </html>

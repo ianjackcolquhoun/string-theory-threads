@@ -49,7 +49,7 @@ const Home: NextPage = () => {
       </div>
 
       {/* Magic Plus Trail */}
-      <MagicPlusTrail />
+      {/* <MagicPlusTrail /> */}
     </>
   )
 }
